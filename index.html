@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Site</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <h1>Java Script Assignment</h1>
+    <div class="container">
+        <h1>Assignment 1 Reverse String</h1>
+        <input type="text" placeholder="Enter String" id="string">
+        <div id="result"> Result : </div>
+        <button class="btn btn-primary" onclick="reverseWords()">Reverse</button>
+
+    </div>
+    <section>
+        <h2>Assignment 2: Word Frequency Counter</h2>
+
+<textarea id="paragraph" placeholder="Enter your paragraph here..."></textarea>
+<br>
+<button onclick="analyzeText()">Analyze</button>
+
+<h3>Word Frequencies:</h3>
+<div id="output"></div>
+    </section>
+
+    <section>
+        
+        <div class="container w-50  shadow p-5" style="background-color: rgb(17, 17, 16);">
+            <h1> Assignment 10 calculator</h1>
+            <div class="conatainer p-5 w-50 mx-auto">
+                <input type="number" id="num1" class="form-control mb-2" />
+                <input type="number" id="num2" class="form-control" />
+            </div>
+            <div id="result1" style="height:100px">
+
+            </div>
+            <div class="container d-flex justify-content-around">
+                <button class="btn btn-primary" id="addition">Addition</button>
+                <button class="btn btn-primary" id="substraction">substraction</button>
+                <button class="btn btn-primary" id="multiplication">multiplication</button>
+                <button class="btn btn-primary" id="divsion">divsion</button>
+
+
+            </div>
+        </div>
+    </section>
+    <script>
+        function WordFrequencies(text){
+            const words=text
+            .toLowerCase()
+            .replace(/[^\w\s]|_/g,'')
+            .replace(/\s+/g,'')
+            .trim()
+            .split('');
+    return words.reduce((counts ,w)=>{
+        if (w.length===0)
+        return counts;
+        counts[w]=(counts[w]||0)+1;
+        return counts;
+
+
+    },{})
+
+        }
+    </script>
+
+    <script>
+        const stringInput = document.querySelector("#string");
+        const result = document.querySelector("#result");
+       function reverseWords() {
+    let str = stringInput.value;
+    // Split sentence into words, reverse each word, and rejoin
+    let reversedWords = str
+      .split(' ')
+      .map(word => word.split('').reverse().join(''))
+      .join(' ');
+      
+    result.innerHTML = "Result: " + reversedWords;
+  }
+        console.log("Hello Word from Wisdom Sprout  It Training Hub")
+
+
+    </script>
+    <script>
+        const num1 = document.querySelector("#num1")
+        const num2 = document.querySelector("#num2")
+        const result1 = document.querySelector("#result1")
+        const Addition = document.querySelector("#addition")
+        const substraction = document.querySelector("#substraction")
+        const multiplication = document.querySelector("#multiplication")
+        const divsion = document.querySelector("#divsion")
+
+
+        const calculator = {
+            // n1,
+            // n2,
+            addition: function (n1, n2) {
+                console.log(n1, n2)
+                return n1 + n2
+            },
+            substraction: function () {
+                return this.n1 - this.n2
+            },
+            multiplication: function () {
+                return this.n1 * this.n2
+            },
+            divsion: function () {
+                if (this.n2 == 0) {
+                    return "not divided by 0"
+                } else {
+                    return this.n1 / this.n2
+                }
+            }
+        }
+
+        addition.addEventListener('click', () => {
+            n1 = Number(num1.value)
+            n2 = Number(num2.value)
+            res = calculator.addition(n1, n2)
+            result1.innerHTML = res
+        })
+
+        substraction.addEventListener('click', () => {
+
+            calculator.n1 = Number(num1.value);
+            calculator.n2 = Number(num2.value);
+
+            res = calculator.substraction();
+            result1.innerHTML = res;
+        })
+        multiplication.addEventListener('click', () => {
+
+            calculator.n1 = Number(num1.value);
+            calculator.n2 = Number(num2.value);
+
+            res = calculator.multiplication();
+            result1.innerHTML = res;
+        })
+        divsion.addEventListener('click', () => {
+            n1 = Number(num1.value)
+            n2 = Number(num2.value)
+            res = calculator.divsion(n1, n2)
+            result1.innerHTML = res
+        })
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
